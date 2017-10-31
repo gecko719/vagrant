@@ -1,14 +1,37 @@
 # Vagrant 
 
+> 若你在windwos上安裝vagrant，Vagrant v2.0.0執行vagrant up時無反應，請改裝 [vagrant 1.9.5版本] (https://releases.hashicorp.com/vagrant/1.9.5/)
 
-#### 1. 建立資料匣
+#### 1. Proxy設定
+
+> 若無需要可跳過
+
+指定proxy供下載ruby gem用
+
+~~~
+$ set http_proxy=10.160.3.88:8080
+$ set https_proxy=10.160.3.88:8080
+$ set HTTP_PROXY=10.160.3.88:8080
+$ set HTTPS_PROXY=10.160.3.88:8080
+~~~
+
+安裝vagrant-proxyconf
+
+~~~
+$ vagrant plugin install vagrant-proxyconf
+Installing the 'vagrant-proxyconf' plugin. This can take a few minutes...
+Fetching: vagrant-proxyconf-1.5.2.gem (100%)
+Installed the plugin 'vagrant-proxyconf (1.5.2)'!
+~~~
+
+#### 2. 建立資料匣
 
 ~~~
 $ mkdir -p /Users/chungwei/Documents/work/vagrant/williamyeh-ubuntu-trusty64-docker-1
 $ cd /Users/chungwei/Documents/work/vagrant/williamyeh-ubuntu-trusty64-docker-1
 ~~~
 
-#### 2. 從Vagrant Cloud 安裝 Box 'boxwilliamyeh/ubuntu-trusty64-docker'
+#### 3. 從Vagrant Cloud 安裝 Box 'boxwilliamyeh/ubuntu-trusty64-docker'
 
 ~~~
 $ vagrant init williamyeh/ubuntu-trusty64-docker
@@ -20,7 +43,7 @@ the comments in the Vagrantfile as well as documentation on
 
 ~~~
 
-#### 3. 查看目錄下是否有產生Vagrantfile
+#### 4. 查看目錄下是否有產生Vagrantfile
 
 ~~~
 $ ls
@@ -28,7 +51,22 @@ Vagrantfile
 
 ~~~
 
-#### 4. 透過Vagrantfile檔案來啟動虛擬機。
+##### 4.1 修改Vagrantfile增加proxy設定
+
+於Vagrantfile路徑下，並編輯Vagrantfile，增加下列設定
+
+~~~
+config.vm.box = "gecko719/ubuntu-trusty64-docker"
+  
+# Configure micron proxy
+config.proxy.enabled = true
+config.proxy.http     = "http://10.160.3.88:8080"
+config.proxy.https    = "http://10.160.3.88:8080"
+config.proxy.no_proxy = "localhost,127.0.0.1"
+~~~
+
+
+#### 5. 透過Vagrantfile檔案來啟動虛擬機。
 
 ~~~
 
@@ -80,7 +118,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ~~~
 
 
-#### 5. 登入虛擬機
+#### 6. 登入虛擬機
 
 ~~~
 $ vagrant ssh
@@ -91,7 +129,7 @@ vagrant@localhost ~ $
 
 ~~~
 
-#### 6. 確認OS資訊
+#### 7. 確認OS資訊
 
 ~~~
 vagrant@localhost ~ $ lsb_release -a
@@ -102,9 +140,13 @@ Release:	14.04
 Codename:	trusty 
 ~~~
 
-#### 7. 關閉虛擬機
+#### 8. 關閉虛擬機
 
 ~~~
 $ vagrant halt
 ==> default: Attempting graceful shutdown of VM...
 ~~~
+
+
+
+

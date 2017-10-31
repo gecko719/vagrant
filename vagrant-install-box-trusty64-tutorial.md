@@ -1,6 +1,6 @@
 # Vagrant 
 
-> 若你在windwos上安裝vagrant，Vagrant v2.0.0執行vagrant up時無反應，請改裝 [vagrant 1.9.5版本] (https://releases.hashicorp.com/vagrant/1.9.5/)
+> 若你在windwos上安裝vagrant，Vagrant v2.0.0執行vagrant up時無反應，請改裝 [vagrant 1.9.5版本](https://releases.hashicorp.com/vagrant/1.9.5/)
 
 #### 1. Proxy設定
 

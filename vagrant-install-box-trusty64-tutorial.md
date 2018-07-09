@@ -60,8 +60,8 @@ config.vm.box = "gecko719/ubuntu-trusty64-docker"
   
 # Configure micron proxy
 config.proxy.enabled = true
-config.proxy.http     = "http://10.160.3.88:8080"
-config.proxy.https    = "http://10.160.3.88:8080"
+config.proxy.http     = "http://10.XX.XX.XX:8080"
+config.proxy.https    = "http://10.XX.XX.XX:8080"
 config.proxy.no_proxy = "localhost,127.0.0.1"
 ~~~
 

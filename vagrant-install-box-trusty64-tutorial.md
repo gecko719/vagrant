@@ -9,10 +9,10 @@
 指定proxy供下載ruby gem用
 
 ~~~
-$ set http_proxy=10.160.3.88:8080
-$ set https_proxy=10.160.3.88:8080
-$ set HTTP_PROXY=10.160.3.88:8080
-$ set HTTPS_PROXY=10.160.3.88:8080
+$ set http_proxy=10.XX.XX.XX:8080
+$ set https_proxy=10.XX.XX.XX:8080
+$ set HTTP_PROXY=10.XX.XX.XX:8080
+$ set HTTPS_PROXY=10.XX.XX.XX:8080
 ~~~
 
 安裝vagrant-proxyconf
